@@ -1,0 +1,527 @@
+<html><head><base href="https://"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Golden Pizza Slice | $GPS</title><style>
+:root {
+  --primary: #FFD700;
+  --secondary: #FFA500; 
+  --text: #333;
+  --bg: #000;
+  --telegram: #0088cc;
+  --x: #000000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+.section {
+  padding: 5rem 2rem;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-title {
+  font-size: 3rem;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.section-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: white;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  background: rgba(255, 215, 0, 0.1);
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.tokenomics-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: 2rem;
+}
+
+.rocket-image {
+  width: 300px;
+  height: auto;
+  animation: rocketFloat 4s ease-in-out infinite;
+}
+
+@keyframes rocketFloat {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+.roadmap {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.roadmap-item {
+  background: rgba(255, 215, 0, 0.1);
+  padding: 2rem;
+  border-radius: 15px;
+  margin: 2rem 0;
+  position: relative;
+  border: 2px solid var(--primary);
+  transition: transform 0.3s ease;
+}
+
+.roadmap-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.roadmap-phase {
+  color: var(--primary);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+.pizza-cursor {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  font-size: 24px;
+  transform: rotate(0deg);
+  transition: transform 0.1s ease;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.pizza-logo {
+  width: 300px;
+  height: 300px;
+  margin-bottom: 2rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+.title {
+  font-size: 4rem;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  color: var(--bg);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s;
+  text-decoration: none;
+  margin: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.telegram-button {
+  background: var(--telegram);
+  color: white;
+}
+
+.telegram-icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.x-button {
+  background: #000000;
+  border: 1px solid #333;
+  color: white;
+}
+
+.x-icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.pizza-trail {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.stat-box {
+  background: rgba(255, 215, 0, 0.1);
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+}
+
+.stat-value {
+  font-size: 2rem;
+  color: var(--primary);
+}
+
+.stat-label {
+  font-size: 1rem;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; transform: translate(0, 0) rotate(0deg); }
+  100% { opacity: 0; transform: translate(0, 20px) rotate(360deg); }
+}
+
+.tokenomics-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.tokenomics-card {
+  background: rgba(255, 215, 0, 0.1);
+  padding: 1.5rem;
+  border-radius: 15px;
+  text-align: center;
+  border: 2px solid var(--primary);
+  transition: transform 0.3s ease;
+}
+
+.tokenomics-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.tokenomics-card h3 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.tokenomics-card p {
+  color: white;
+  font-size: 1.1rem;
+}
+
+.how-to-buy-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.step-card {
+  background: rgba(255, 215, 0, 0.1);
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  border: 2px solid var(--primary);
+  transition: transform 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.step-number {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.step-card h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.step-card p {
+  color: white;
+}
+
+.footer {
+  text-align: center;
+  padding: 2rem;
+  color: white;
+  background: rgba(255, 215, 0, 0.1);
+  margin-top: 2rem;
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="custom-cursor"></div>
+
+<div class="hero">
+  <img src="/openart-afc68dba-d023-4417-bb0a-c10df9b3cff7.png" alt="Happy anthropomorphic pizza slice mascot holding a mini pizza, with sparkling stars background" class="pizza-logo">
+
+  <h1 class="title">$GPS</h1>
+  <p class="subtitle">The Best Slice in the Crypto Universe!</p>
+
+  <div class="stats">
+    <div class="stat-box">
+      <div class="stat-value">100%</div>
+      <div class="stat-label">FAIR LAUNCH</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-value">100+</div>
+      <div class="stat-label">PIZZA LOVERS</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-value">24/7</div>
+      <div class="stat-label">FRESH & HOT</div>
+    </div>
+  </div>
+
+  <div>
+    <a href="https://raydium.io/" class="cta-button">BUY ON RAYDIUM</a>
+    <a href="https://t.me/goldenpizzaslice" class="cta-button telegram-button">
+      <svg class="telegram-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.223-.535.223l.192-2.748 5.004-4.027c.218-.196-.047-.304-.335-.108l-6.18 3.89-2.672-.882c-.58-.183-.594-.577.124-.852l10.435-4.027c.486-.183.913.112.752.85z"/>
+      </svg>
+    </a>
+    <a href="https://x.com/Gldnpizzaslice" class="cta-button x-button">
+      <svg class="x-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+      </svg>
+    </a>
+  </div>
+</div>
+
+<section class="section" id="about">
+  <h2 class="section-title">The Best Slice in Town</h2>
+  <div class="section-content">
+    <div style="display: flex; align-items: center; gap: 2rem; max-width: 1200px; margin: 0 auto;">
+      <div style="flex: 1; background: rgba(255, 215, 0, 0.1); padding: 2rem; border-radius: 15px; border: 2px solid var(--primary); max-width: 800px; margin: 0 auto;">
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          What started as a legendary pizza purchase with Bitcoin in 2010 has now evolved into something bigger—a movement, a community, and a revolution. The Golden Pizza Slice ($GPS) memecoin is here to commemorate that iconic moment in crypto history and take it to the next level. 🍕✨
+        </p>
+        <br>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Each $GPS token represents more than just a piece of cryptocurrency—it's a slice of history. As the first-ever pizza bought with Bitcoin sparked the world's attention to crypto, Golden Pizza Slice brings together the pioneers, the dreamers, and the pizza lovers in a single, irresistible bite.
+        </p>
+      </div>
+      <img src="/Goldenpizza Ferrari.png" alt="Cartoon pizza slice character driving a yellow Ferrari with GPS written on side" style="width: 300px; height: auto; animation: float 3s ease-in-out infinite;">
+    </div>
+  </div>
+</section>
+
+<section class="section" id="tokenomics">
+  <h2 class="section-title">Pizzanomics</h2>
+  <div class="section-content">
+    <div class="tokenomics-container">
+      <img src="/Pizzaslice Rocket.png" alt="Cartoon pizza slice with wallets and rising stock graph" class="rocket-image">
+      <div class="tokenomics-grid">
+        <div class="tokenomics-card">
+          <h3>Total Supply</h3>
+          <p>1,000,000,000,000</p>
+        </div>
+        <div class="tokenomics-card">
+          <h3>Liquidity</h3>
+          <p>Locked Forever</p>
+          <p>Ownership Revoked</p>
+        </div>
+        <div class="tokenomics-card">
+          <h3>Tax</h3>
+          <p>0% Buy / 0% Sell</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how-to-buy">
+  <h2 class="section-title">How to Buy</h2>
+  <div class="section-content">
+    <div class="how-to-buy-steps">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h3>Create Wallet</h3>
+        <p>Download and install Phantom Wallet or another Solana-compatible wallet</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h3>Get SOL</h3>
+        <p>Buy SOL from an exchange and send it to your wallet</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h3>Connect to Raydium</h3>
+        <p>Visit Raydium.io and connect your wallet</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">4</div>
+        <h3>Swap for $GPS</h3>
+        <p>Swap your SOL for $GPS and enjoy your slice!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="roadmap">
+  <h2 class="section-title">Roadmap</h2>
+  <div class="section-content">
+    <div style="display: flex; align-items: center; gap: 2rem; max-width: 1200px; margin: 0 auto;">
+      <div class="roadmap">
+        <div class="roadmap-item">
+          <h3 class="roadmap-phase">Phase 1: Kitchen Prep</h3>
+          <ul>
+            <li>Website Launch</li>
+            <li>Community Building</li>
+            <li>Contract Audit</li>
+            <li>Initial Marketing Push</li>
+          </ul>
+        </div>
+        <div class="roadmap-item">
+          <h3 class="roadmap-phase">Phase 2: Fresh Out The Oven</h3>
+          <ul>
+            <li>CEX Listings</li>
+            <li>NFT Collection Launch</li>
+            <li>Partnership Announcements</li>
+            <li>Community Events</li>
+          </ul>
+        </div>
+        <div class="roadmap-item">
+          <h3 class="roadmap-phase">Phase 3: Worldwide Delivery</h3>
+          <ul>
+            <li>Major Exchange Listings</li>
+            <li>Global Marketing Campaign</li>
+            <li>DAO Implementation</li>
+            <li>Metaverse Integration</li>
+          </ul>
+        </div>
+      </div>
+      <img src="/Pizzaslice HODL.png" alt="Cartoon pizza slice in HODL vault with bitcoin and dollar signs" style="width: 300px; height: auto; animation: float 3s ease-in-out infinite;">
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  © 2024 Golden Pizza Slice. All Rights Reserved
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const cursor = document.querySelector('.custom-cursor');
+  const pizzaEmoji = '🍕';
+  let trailElements = [];
+  
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    
+    createPizzaTrail(e.clientX, e.clientY);
+  });
+
+  function createPizzaTrail(x, y) {
+    const trail = document.createElement('div');
+    trail.className = 'pizza-trail';
+    trail.innerHTML = pizzaEmoji;
+    trail.style.left = x + 'px';
+    trail.style.top = y + 'px';
+    trail.style.position = 'fixed';
+    trail.style.animation = 'fadeOut 1s forwards';
+    document.body.appendChild(trail);
+    
+    trailElements.push(trail);
+    
+    setTimeout(() => {
+      trail.remove();
+      trailElements = trailElements.filter(el => el !== trail);
+    }, 1000);
+  }
+
+  const pizzaCursor = document.createElement('div');
+  pizzaCursor.className = 'pizza-cursor';
+  pizzaCursor.innerHTML = pizzaEmoji;
+  cursor.appendChild(pizzaCursor);
+
+  let lastMouseX = 0;
+  let lastMouseY = 0;
+  
+  document.addEventListener('mousemove', (e) => {
+    const deltaX = e.clientX - lastMouseX;
+    const deltaY = e.clientY - lastMouseY;
+    const rotation = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
+    
+    pizzaCursor.style.transform = `rotate(${rotation}deg)`;
+    
+    lastMouseX = e.clientX;
+    lastMouseY = e.clientY;
+  });
+});
+</script>
+
+</body></html>
